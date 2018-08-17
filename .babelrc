@@ -1,0 +1,35 @@
+{
+  "env": {
+    "commonjs": {
+      "presets": [
+        [
+          "@babel/env", {
+            "useBuiltIns": "usage",
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        "@babel/transform-runtime",
+        "closure-elimination",
+        "dev-expression"
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "@babel/env", {
+            "useBuiltIns": "usage",
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        "@babel/transform-runtime",
+        "closure-elimination",
+        "dev-expression"
+      ]
+    }
+  }
+}
