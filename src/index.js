@@ -1,7 +1,8 @@
-import strictShallowEqual from '@render-props/utils/es/strictShallowEqual'
+import {strictShallowEqual} from '@render-props/utils'
 
 
 export const shallowEqual = strictShallowEqual
+const emptyObj = {}
 
 
 export class Element {
@@ -164,10 +165,13 @@ export class CDLL {
 }
 
 
-export default function memoize (
-  fn,
-  {size = 24, isEqual = strictShallowEqual, serializer = null, debug = false}
-) {
+export default function memoize (fn, opt) {
+  let {
+    size = 24,
+    isEqual = strictShallowEqual,
+    serializer = null,
+    debug = false
+  } = opt || emptyObj
   let ll = new CDLL()
 
   function areArgsEqual (a, b) {
