@@ -4,7 +4,6 @@
       "presets": [
         [
           "@babel/env", {
-            "useBuiltIns": "usage",
             "loose": true
           }
         ]
@@ -19,7 +18,6 @@
       "presets": [
         [
           "@babel/env", {
-            "useBuiltIns": "usage",
             "modules": false,
             "loose": true
           }
