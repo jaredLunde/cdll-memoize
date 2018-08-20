@@ -9,7 +9,6 @@
         ]
       ],
       "plugins": [
-        "@babel/transform-runtime",
         "closure-elimination",
         "dev-expression"
       ]
@@ -24,7 +23,6 @@
         ]
       ],
       "plugins": [
-        "@babel/transform-runtime",
         "closure-elimination",
         "dev-expression"
       ]
