@@ -43,6 +43,28 @@ export class CDLL {
     }
   }
 
+  forEach (cb) {
+    let next = this.head.next
+    cb(next.value)
+    while (next !== this.head) {
+      next = next.next
+      if (cb(next.value) === false)
+        break
+    }
+  }
+
+  map (cb) {
+    let i = 0
+    let nextCDLL = new CDLL()
+
+    this.forEach(v => {
+      nextCDLL.push(cb(v), i)
+      i += 1
+    })
+
+    return nextCDLL
+  }
+
   find (value, isEqual = defaultFindIsEqual) {
     if (this.size === 0) {
       return
