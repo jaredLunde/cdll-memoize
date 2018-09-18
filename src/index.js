@@ -44,6 +44,10 @@ export class CDLL {
   }
 
   forEach (cb) {
+    if (this.size === 0) {
+      return
+    }
+
     let next = this.head.next
     cb(next.value)
     while (next !== this.head) {
