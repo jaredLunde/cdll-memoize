@@ -50,7 +50,7 @@ export class CDLL {
 
     let next = this.head.next
     cb(next.value)
-    while (next !== this.head) {
+    while (next !== this.head && this.size > 0) {
       next = next.next
       if (cb(next.value) === false)
         break
