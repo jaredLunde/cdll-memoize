@@ -256,10 +256,6 @@ export default function memoize (fn, opt) {
     }
   }
 
-  if (__DEV__) {
-    Object.defineProperty(wrapper, 'name', {value: `memoize(${fn.name})`})
-  }
-
   return wrapper
 }
 
