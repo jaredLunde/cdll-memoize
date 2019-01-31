@@ -4,7 +4,7 @@
       "presets": [
         [
           "@babel/env", {
-            "loose": true
+            "targets": {"chrome": "41", "ie": "11"}
           }
         ]
       ],
@@ -17,8 +17,10 @@
       "presets": [
         [
           "@babel/env", {
+            "useBuiltIns": false,
             "modules": false,
-            "loose": true
+            "loose": true,
+            "targets": {"browsers": ">5% in US"}
           }
         ]
       ],
