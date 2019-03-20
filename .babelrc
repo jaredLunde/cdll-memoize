@@ -4,6 +4,8 @@
       "presets": [
         [
           "@babel/env", {
+            "useBuiltIns": false,
+            "loose": true,
             "targets": {"chrome": "41", "ie": "11"}
           }
         ]
