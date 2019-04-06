@@ -1,9 +1,8 @@
-import {strictShallowEqual} from '@render-props/utils'
+import {areEqualArrays} from '@essentials/are-equal'
 
 
-export const shallowEqual = strictShallowEqual
+export const shallowEqual = areEqualArrays
 const emptyObj = {}
-
 
 export class Element {
   constructor (value, prev, next) {
@@ -20,11 +19,9 @@ export class Element {
   }
 }
 
-
 function defaultFindIsEqual (a, b) {
   return a === b
 }
-
 
 /**
 head -> next -> tail
@@ -194,15 +191,11 @@ export class CDLL {
 export default function memoize (fn, opt) {
   let {
     size = 24,
-    isEqual = strictShallowEqual,
+    isEqual = areEqualArrays,
     serializer = null,
     debug = false
   } = opt || emptyObj
-  let ll = new CDLL()
-
-  function areArgsEqual (a, b) {
-    return isEqual(a.args, b)
-  }
+  let ll = new CDLL(), areArgsEqual = (a, b) => isEqual(a.args, b)
 
   function wrapper (...args) {
     const serializedArgs = serializer ? serializer(args) : args
@@ -220,8 +213,9 @@ export default function memoize (fn, opt) {
       return result
     }
     else {
-      let i = 1
-      const element = ll.findReverse(serializedArgs, areArgsEqual)
+      let
+        i = 1,
+        element = ll.findReverse(serializedArgs, areArgsEqual)
 
       if (element !== void 0) {
         // this is a cache hit, return the result and move the element to
@@ -247,7 +241,7 @@ export default function memoize (fn, opt) {
       const result = fn(...args)
       ll.push({args: serializedArgs, result})
 
-      if (i > ll.size) {
+      if (i > size) {
         // removes the HEAD
         ll.shift()
       }
@@ -260,8 +254,7 @@ export default function memoize (fn, opt) {
 }
 
 
-let MISSES = 0
-let HITS = 0
+let MISSES = 0, HITS = 0
 
 function record (type, fn, args) {
   if (type === 'miss') {

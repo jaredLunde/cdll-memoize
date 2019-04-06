@@ -1,5 +1,5 @@
 {
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -36,6 +36,6 @@
     "prettier": "^1.14.2"
   },
   "dependencies": {
-    "@render-props/utils": "^0.2.11"
+    "@essentials/are-equal": "^1.0.1"
   }
 }

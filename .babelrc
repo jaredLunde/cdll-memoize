@@ -6,7 +6,7 @@
           "@babel/env", {
             "useBuiltIns": false,
             "loose": true,
-            "targets": {"chrome": "41", "ie": "11"}
+            "targets": {"browsers": ">5% in US"}
           }
         ]
       ],
